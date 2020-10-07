@@ -1,4 +1,4 @@
-package lw2.ex1
+package lw2.ex1;
 
 public class Circle
 {
