@@ -1,4 +1,4 @@
-package Movable;
+package pr3.Movable;
 
 public class MovablePoint implements IMovable {
     private int x;

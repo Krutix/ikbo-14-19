@@ -1,4 +1,4 @@
-package Shape;
+package pr3.Shape;
 
 public class Rectangle extends Shape {
     protected double width = 0.;

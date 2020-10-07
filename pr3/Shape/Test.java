@@ -1,4 +1,4 @@
-package Shape;
+package pr3.Shape;
 
 public class Test {
     public static void main(String[] args){

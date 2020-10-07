@@ -1,4 +1,4 @@
-package frame;
+package pr4.frame;
 
 public class Test {
     public static void main(String[] args){

@@ -1,4 +1,4 @@
-package Shape;
+package pr3.Shape;
 
 public abstract class Shape {
     protected String color;

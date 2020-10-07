@@ -1,4 +1,4 @@
-package UML;
+package pr2.UML;
 
 public class Ball {
     private double x = 0.0;

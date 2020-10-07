@@ -1,4 +1,4 @@
-package Movable;
+package pr3.Movable;
 
 public class MovableRectangle implements IMovable {
     private MovablePoint topLeft;

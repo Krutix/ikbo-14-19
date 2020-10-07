@@ -1,4 +1,4 @@
-package Movable;
+package pr3.Movable;
 
 public class MovableCircle implements IMovable {
     private int radius;

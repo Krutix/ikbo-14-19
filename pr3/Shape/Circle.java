@@ -1,4 +1,4 @@
-package Shape;
+package pr3.Shape;
 
 public class Circle extends Shape {
     protected double radius = 0.;

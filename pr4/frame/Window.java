@@ -1,4 +1,4 @@
-package frame;
+package pr4.frame;
 
 import java.awt.*;
 import java.awt.event.*;

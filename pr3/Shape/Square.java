@@ -1,4 +1,4 @@
-package Shape;
+package pr3.Shape;
 
 public class Square extends Rectangle {
     Square(){}

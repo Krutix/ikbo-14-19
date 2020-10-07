@@ -1,4 +1,4 @@
-package Movable;
+package pr3.Movable;
 
 public interface IMovable {
     void moveUp();

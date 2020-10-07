@@ -1,4 +1,4 @@
-package Movable;
+package pr3.Movable;
 
 public class Test {
     public static void main(String[] args){
