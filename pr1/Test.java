@@ -1,3 +1,5 @@
+package pr1;
+
 public class Test {
     public static void main(String[] args){
         Ball standardBall = new Ball();

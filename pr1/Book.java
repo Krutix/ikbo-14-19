@@ -1,3 +1,5 @@
+package pr1;
+
 public class Book {
     private String name = "None";
     private String author = "None";

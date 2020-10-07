@@ -1,25 +1,19 @@
-package pr1;
+package lw3.ex2;
 
-public class Dog {
+public abstract class Dog {
     private String name = "None";
     private int age = 0;
     public boolean isVaccinated = false;
-
-    Dog(){}
-
-    Dog(String newName){
-        name = newName;
-    }
-
-    Dog(String newName, int newAge){
-        name = newName;
-        age = newAge;
-    }
 
     Dog(String newName, int newAge, boolean vaccinated){
         name = newName;
         age = newAge;
         isVaccinated = vaccinated;
+    }
+
+    public void bark()
+    {
+        System.out.println("Wuf");
     }
 
     public void setName(String newName) {

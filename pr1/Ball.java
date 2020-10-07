@@ -1,3 +1,5 @@
+package pr1;
+
 public class Ball {
     private double radius = 1.;
     private String color = "White";
