@@ -12,7 +12,6 @@ public class toFile {
         while (scanner.hasNext())
         {
             str = scanner.nextLine();
-            System.out.println(str);
             writer.write(str + '\n');
         }
         writer.close();
