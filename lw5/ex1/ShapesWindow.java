@@ -10,6 +10,7 @@ public class ShapesWindow extends JFrame {
     {
         this.shapes = generateShapes(20);
         setSize(500, 500);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         JPanel panel = new JPanel() {
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);

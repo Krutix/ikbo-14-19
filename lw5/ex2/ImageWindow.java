@@ -15,7 +15,7 @@ public class ImageWindow extends JFrame {
         setTitle(imageName);
         this.showImage = showImage;
         setSize(showImage.getWidth(null), showImage.getHeight(null));
-
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         JPanel panel = new JPanel() {
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
