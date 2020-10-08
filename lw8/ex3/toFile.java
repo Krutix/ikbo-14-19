@@ -1,4 +1,4 @@
-package lw8.ex1;
+package lw8.ex3;
 
 import java.io.FileWriter;
 import java.io.IOException;
