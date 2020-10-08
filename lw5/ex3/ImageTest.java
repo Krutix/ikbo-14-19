@@ -5,6 +5,6 @@ import java.io.IOException;
 
 public class ImageTest {
     public static void main(String[] args) throws IOException {
-        ImageWindow fr = new ImageWindow();
+        ImageWindow fr = new ImageWindow(); //TODO not working!!!
     }
 }
