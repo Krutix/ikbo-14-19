@@ -1,4 +1,4 @@
-package lw9.ex1;
+package lw9.ex1_4;
 
 import java.util.Scanner;
 
