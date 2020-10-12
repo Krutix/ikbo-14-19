@@ -8,6 +8,7 @@ import java.util.Queue;
 public class DrunkardGameQueue implements IDrunkardGame {
     private Queue<Integer> firPlayer;
     private Queue<Integer> secPlayer;
+    private Queue<Integer> battle;
     private int step;
 
     private int winner(Integer fir, Integer sec)
@@ -23,6 +24,7 @@ public class DrunkardGameQueue implements IDrunkardGame {
     {
         firPlayer = new LinkedList<>();
         secPlayer = new LinkedList<>();
+        battle = new LinkedList<>();
         step = 0;
         for (int el : firPlayerStart)
             firPlayer.offer(el);
@@ -32,15 +34,25 @@ public class DrunkardGameQueue implements IDrunkardGame {
         {
             Integer fir = firPlayer.poll();
             Integer sec = secPlayer.poll();
-            if (winner(fir, sec) > 0)
+            int win = winner(fir, sec);
+            if (win > 0)
             {
+                while (battle.size() > 0)
+                    firPlayer.offer(battle.poll());
                 firPlayer.offer(fir);
                 firPlayer.offer(sec);
             }
-            else
+            else if (win < 0)
             {
+                while (battle.size() > 0)
+                    secPlayer.offer(battle.poll());
                 secPlayer.offer(fir);
                 secPlayer.offer(sec);
+            }
+            else
+            {
+                battle.offer(fir);
+                battle.offer(sec);
             }
             step++;
         }

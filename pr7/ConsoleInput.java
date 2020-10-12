@@ -40,7 +40,10 @@ public class ConsoleInput {
             int[] secondPlayer = toIntArray(split.split(scanner.nextLine()));
             int[] result = game.Solution(firstPlayer, secondPlayer);
             if (result[1] < 106) {
-                System.out.print((result[0] < 0 ? "first" : "second") + " ");
+                if (result[0] == 0)
+                    System.out.print("Both be drunkards: ");
+                else
+                    System.out.print((result[0] < 0 ? "first" : "second") + " :");
                 System.out.println(result[1]);
             } else
                 System.out.println("botva");

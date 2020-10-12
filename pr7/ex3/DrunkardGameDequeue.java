@@ -6,8 +6,9 @@ import java.util.ArrayDeque;
 import java.util.Deque;
 
 public class DrunkardGameDequeue implements IDrunkardGame {
-    private Deque<Integer> firPlayer = new ArrayDeque<>();
-    private Deque<Integer> secPlayer = new ArrayDeque<>();
+    private Deque<Integer> firPlayer;
+    private Deque<Integer> secPlayer;
+    private Deque<Integer> battle;
     private int step = 0;
 
     private int winner(Integer fir, Integer sec)
@@ -21,6 +22,9 @@ public class DrunkardGameDequeue implements IDrunkardGame {
     @Override
     public int[] Solution(int[] firPlayerStart, int[] secPlayerStart)
     {
+        firPlayer= new ArrayDeque<>();
+        secPlayer= new ArrayDeque<>();
+        battle = new ArrayDeque<>();
         for (int el : firPlayerStart)
             firPlayer.offer(el);
         for (int el : secPlayerStart)
@@ -29,15 +33,25 @@ public class DrunkardGameDequeue implements IDrunkardGame {
         {
             Integer fir = firPlayer.poll();
             Integer sec = secPlayer.poll();
-            if (winner(fir, sec) > 0)
+            int win = winner(fir, sec);
+            if (win > 0)
             {
+                while (battle.size() > 0)
+                    firPlayer.offer(battle.poll());
                 firPlayer.offer(fir);
                 firPlayer.offer(sec);
             }
-            else
+            else if (win < 0)
             {
+                while (battle.size() > 0)
+                    secPlayer.offer(battle.poll());
                 secPlayer.offer(fir);
                 secPlayer.offer(sec);
+            }
+            else
+            {
+                battle.offer(fir);
+                battle.offer(sec);
             }
             step++;
         }
