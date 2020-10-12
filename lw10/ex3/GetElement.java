@@ -1,13 +1,13 @@
 package lw10.ex3;
 
-import java.util.Collection;
 import java.util.LinkedList;
+import java.util.List;
 
 public class GetElement {
-    public static <E> E getElement(Collection<E> array, int index)
+    public static <E> E getElement(List<E> array, int index)
     {
         if (index >= 0 && index < array.size())
-            return (E) array.toArray()[index];
+            return array.get(index);
         return null;
     }
 
