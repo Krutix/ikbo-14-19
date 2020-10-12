@@ -6,9 +6,7 @@ import java.util.regex.Pattern;
 public class IsCost {
     private static boolean isRightCost(String costStr)
     {
-        if (Pattern.matches("\\d*(\\.\\d\\d)? ((EU)|(USD)|(RUB))", costStr))
-            return true;
-        return false;
+        return Pattern.matches("\\d*(\\.\\d\\d)? ((EU)|(USD)|(RUB))", costStr);
     }
 
     public static void main(String[] args) {

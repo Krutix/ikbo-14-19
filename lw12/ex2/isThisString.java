@@ -8,9 +8,6 @@ public class isThisString {
         Scanner scanner = new Scanner(System.in);
         String sample = "abcdefghijklmnopqrstuv18340";
         String str = scanner.nextLine();
-        if (Pattern.matches(sample, str))
-            System.out.println("true");
-        else
-            System.out.println("false");
+        System.out.println(Pattern.matches(sample, str));
     }
 }

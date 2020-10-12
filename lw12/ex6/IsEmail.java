@@ -4,9 +4,9 @@ import java.util.Scanner;
 import java.util.regex.Pattern;
 
 public class IsEmail {
-    private static boolean isEmail(String costStr)
+    private static boolean isEmail(String email)
     {
-        if (Pattern.matches("[a-z\\d!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z\\d!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z\\d](?:[a-z\\d-]*[a-z0-9])?)+(\\.[a-z\\d](?:[a-z\\d-]*[\\da-z]))?", costStr))
+        if (Pattern.matches("[a-z\\d!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z\\d!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z\\d](?:[a-z\\d-]*[a-z0-9])?)+(\\.[a-z\\d](?:[a-z\\d-]*[\\da-z]))?", email))
             return true;
         return false;
     }
