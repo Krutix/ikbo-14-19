@@ -6,9 +6,9 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class DrunkardGameQueue implements IDrunkardGame {
-    private Queue<Integer> firPlayer = new LinkedList<>();
-    private Queue<Integer> secPlayer = new LinkedList<>();
-    private int step = 0;
+    private Queue<Integer> firPlayer;
+    private Queue<Integer> secPlayer;
+    private int step;
 
     private int winner(Integer fir, Integer sec)
     {
@@ -21,11 +21,14 @@ public class DrunkardGameQueue implements IDrunkardGame {
     @Override
     public int[] Solution(int[] firPlayerStart, int[] secPlayerStart)
     {
+        firPlayer = new LinkedList<>();
+        secPlayer = new LinkedList<>();
+        step = 0;
         for (int el : firPlayerStart)
             firPlayer.offer(el);
         for (int el : secPlayerStart)
             secPlayer.offer(el);
-        while ((firPlayer.size() > 0 && secPlayer.size() > 0) && step < 106)
+        while ((firPlayer.size() > 0 && secPlayer.size() > 0) && step < 10000)
         {
             Integer fir = firPlayer.poll();
             Integer sec = secPlayer.poll();

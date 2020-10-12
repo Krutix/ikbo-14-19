@@ -5,11 +5,11 @@ import pr7.IDrunkardGame;
 import java.util.*;
 
 public class DrunkardGameStack implements IDrunkardGame {
-    private Stack<Integer> firPlayer = new Stack<>();
-    private Stack<Integer> secPlayer = new Stack<>();
-    private Stack<Integer> firDischarge = new Stack<>();
-    private Stack<Integer> secDischarge = new Stack<>();
-    private int step = 0;
+    private Stack<Integer> firPlayer;
+    private Stack<Integer> secPlayer;
+    private Stack<Integer> firDischarge;
+    private Stack<Integer> secDischarge;
+    private int step;
 
     private int winner(Integer fir, Integer sec)
     {
@@ -22,12 +22,17 @@ public class DrunkardGameStack implements IDrunkardGame {
     @Override
     public int[] Solution(int[] firPlayerStart, int[] secPlayerStart)
     {
+        firPlayer = new Stack<>();
+        secPlayer = new Stack<>();
+        firDischarge = new Stack<>();
+        secDischarge = new Stack<>();
+        step = 0;
         for (int el : firPlayerStart)
             firDischarge.push(el);
         for (int el : secPlayerStart)
             secDischarge.push(el);
         while (((firPlayer.size() > 0 || firDischarge.size() > 0) &&
-                (secPlayer.size() > 0 || secDischarge.size() > 0)) && step < 106)
+                (secPlayer.size() > 0 || secDischarge.size() > 0)) && step < 10000)
         {
             if (firPlayer.size() == 0)
                 while (firDischarge.size() > 0)

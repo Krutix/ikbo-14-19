@@ -25,7 +25,7 @@ public class DrunkardGameDequeue implements IDrunkardGame {
             firPlayer.offer(el);
         for (int el : secPlayerStart)
             secPlayer.offer(el);
-        while ((firPlayer.size() > 0 && secPlayer.size() > 0) && step < 106)
+        while ((firPlayer.size() > 0 && secPlayer.size() > 0) && step < 10000)
         {
             Integer fir = firPlayer.poll();
             Integer sec = secPlayer.poll();
