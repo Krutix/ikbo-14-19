@@ -126,7 +126,7 @@ public class ArrayList_<E> implements List<E> {
 
     @Override
     public void clear() {
-
+        size = 0;
     }
 
     @Override
