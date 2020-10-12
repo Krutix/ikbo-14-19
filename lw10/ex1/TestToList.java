@@ -1,6 +1,6 @@
 package lw10.ex1;
 
-import java.util.LinkedList;
+import java.util.List;
 
 public class TestToList {
     public static void main(String[] args) {
@@ -8,7 +8,7 @@ public class TestToList {
         k[0] = "aaa";
         k[1] = "bbbb";
         k[2] = "cc";
-        LinkedList<String> arrayTest = ToList.toList(k);
+        List<String> arrayTest = ToList.toList(k);
         for (String element : arrayTest)
             System.out.println(element);
     }

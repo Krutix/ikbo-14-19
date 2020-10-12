@@ -1,13 +1,14 @@
 package lw10.ex1;
 
 import java.util.LinkedList;
+import java.util.List;
 
 public class ToList {
-    public static <E> LinkedList<E> toList(E[] array)
+    public static <E> List<E> toList(E[] array)
     {
-        LinkedList<E> newList = new LinkedList<E>();
+        List<E> newList = new LinkedList<E>();
         for (E element : array)
-            newList.addLast(element);
+            newList.add(element);
         return newList;
     }
 }
