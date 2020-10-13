@@ -25,6 +25,7 @@ public class DrunkardGameStack implements IDrunkardGame {
     public ResultDrunkard Solution(int[] firPlayerStart, int[] secPlayerStart)
     {
         ResultDrunkard res = new ResultDrunkard();
+        res.drunkardLog += "Game start\n";
         firPlayer = new Stack<>();
         secPlayer = new Stack<>();
         firDischarge = new Stack<>();
@@ -49,6 +50,7 @@ public class DrunkardGameStack implements IDrunkardGame {
             int win = winner(fir, sec);
             if (win > 0)
             {
+                res.drunkardLog += "Win 2 player: f:" + fir + " x s:" + sec + "\n";
                 while (battle.size() > 0)
                     firDischarge.push(battle.remove(0));
                 firDischarge.push(fir);
@@ -56,6 +58,7 @@ public class DrunkardGameStack implements IDrunkardGame {
             }
             else if (win < 0)
             {
+                res.drunkardLog += "Win 1 player: f:" + fir + " x s:" + sec + "\n";
                 while (battle.size() > 0)
                     secDischarge.push(battle.remove(0));
                 secDischarge.push(fir);
@@ -63,11 +66,13 @@ public class DrunkardGameStack implements IDrunkardGame {
             }
             else
             {
+                res.drunkardLog += "Draw: f:" + fir + " x s:" + sec + "\n";
                 battle.push(fir);
                 battle.push(sec);
             }
             step++;
         }
+        res.drunkardLog += "Game end\n";
         res.Win = firPlayer.size() + firDischarge.size() - secPlayer.size() - secDischarge.size();
         res.steps = step;
         return res;
