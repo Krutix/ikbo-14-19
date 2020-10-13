@@ -1,7 +1,9 @@
 package pr7.ex3;
 
 import pr7.IDrunkardGame;
+import pr7.ResultDrunkard;
 
+import javax.xml.transform.Result;
 import java.util.ArrayDeque;
 import java.util.Deque;
 
@@ -20,8 +22,10 @@ public class DrunkardGameDequeue implements IDrunkardGame {
     }
 
     @Override
-    public int[] Solution(int[] firPlayerStart, int[] secPlayerStart)
+    public ResultDrunkard Solution(int[] firPlayerStart, int[] secPlayerStart)
     {
+        ResultDrunkard res = new ResultDrunkard();
+        res.drunkardLog += "Game start\n";
         firPlayer= new ArrayDeque<>();
         secPlayer= new ArrayDeque<>();
         battle = new ArrayDeque<>();
@@ -36,6 +40,8 @@ public class DrunkardGameDequeue implements IDrunkardGame {
             int win = winner(fir, sec);
             if (win > 0)
             {
+                res.drunkardLog += "Win 2 player: f:" + fir + " x s:" + sec + "\n";
+                res.spWins++;
                 while (battle.size() > 0)
                     firPlayer.offer(battle.poll());
                 firPlayer.offer(fir);
@@ -43,6 +49,8 @@ public class DrunkardGameDequeue implements IDrunkardGame {
             }
             else if (win < 0)
             {
+                res.drunkardLog += "Win 1 player: f:" + fir + " x s:" + sec + "\n";
+                res.fpWins++;
                 while (battle.size() > 0)
                     secPlayer.offer(battle.poll());
                 secPlayer.offer(fir);
@@ -50,14 +58,15 @@ public class DrunkardGameDequeue implements IDrunkardGame {
             }
             else
             {
+                res.drunkardLog += "Draw: f:" + fir + " x s:" + sec + "\n";
                 battle.offer(fir);
                 battle.offer(sec);
             }
             step++;
         }
-        int[] res = new int[2];
-        res[0] = firPlayer.size() - secPlayer.size();
-        res[1] = step;
+        res.drunkardLog += "Game end\n";
+        res.Win = firPlayer.size() - secPlayer.size();
+        res.steps = step;
         return res;
     }
 }

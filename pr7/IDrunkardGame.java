@@ -1,5 +1,5 @@
 package pr7;
 
 public interface IDrunkardGame {
-    int[] Solution(int[] firPlayerStart, int[] secPlayerStart);
+    ResultDrunkard Solution(int[] firPlayerStart, int[] secPlayerStart);
 }

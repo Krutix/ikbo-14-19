@@ -1,6 +1,7 @@
 package pr7.ex1;
 
 import pr7.IDrunkardGame;
+import pr7.ResultDrunkard;
 
 import java.util.*;
 
@@ -21,8 +22,9 @@ public class DrunkardGameStack implements IDrunkardGame {
     }
 
     @Override
-    public int[] Solution(int[] firPlayerStart, int[] secPlayerStart)
+    public ResultDrunkard Solution(int[] firPlayerStart, int[] secPlayerStart)
     {
+        ResultDrunkard res = new ResultDrunkard();
         firPlayer = new Stack<>();
         secPlayer = new Stack<>();
         firDischarge = new Stack<>();
@@ -66,9 +68,8 @@ public class DrunkardGameStack implements IDrunkardGame {
             }
             step++;
         }
-        int[] res = new int[2];
-        res[0] = firPlayer.size() + firDischarge.size() - secPlayer.size() - secDischarge.size();
-        res[1] = step;
+        res.Win = firPlayer.size() + firDischarge.size() - secPlayer.size() - secDischarge.size();
+        res.steps = step;
         return res;
     }
 }

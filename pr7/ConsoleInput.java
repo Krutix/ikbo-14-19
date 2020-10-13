@@ -38,13 +38,14 @@ public class ConsoleInput {
             }
             int[] firstPlayer = toIntArray(split.split(scanner.nextLine()));
             int[] secondPlayer = toIntArray(split.split(scanner.nextLine()));
-            int[] result = game.Solution(firstPlayer, secondPlayer);
-            if (result[1] < 106) {
-                if (result[0] == 0)
+            ResultDrunkard result = game.Solution(firstPlayer, secondPlayer);
+            System.out.print(result.drunkardLog);
+            if (result.steps < 106) {
+                if (result.Win == 0)
                     System.out.print("Both be drunkards: ");
                 else
-                    System.out.print((result[0] < 0 ? "first" : "second") + " :");
-                System.out.println(result[1]);
+                    System.out.print((result.Win < 0 ? "first" : "second") + " :");
+                System.out.println(result.steps);
             } else
                 System.out.println("botva");
         }
