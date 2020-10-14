@@ -38,18 +38,18 @@ public class DrunkardGameQueue implements IDrunkardGame {
             Integer fir = firPlayer.poll();
             Integer sec = secPlayer.poll();
             int win = winner(fir, sec);
-            if (win > 0)
+            if (win < 0)
             {
-                res.drunkardLog += "Win 2 player: f:" + fir + " x s:" + sec + "\n";
+                res.drunkardLog += "Win 1 player: f:" + fir + " x s:" + sec + "\n";
                 res.spWins++;
                 while (battle.size() > 0)
                     firPlayer.offer(battle.poll());
                 firPlayer.offer(fir);
                 firPlayer.offer(sec);
             }
-            else if (win < 0)
+            else if (win > 0)
             {
-                res.drunkardLog += "Win 1 player: f:" + fir + " x s:" + sec + "\n";
+                res.drunkardLog += "Win 2 player: f:" + fir + " x s:" + sec + "\n";
                 res.fpWins++;
                 while (battle.size() > 0)
                     secPlayer.offer(battle.poll());

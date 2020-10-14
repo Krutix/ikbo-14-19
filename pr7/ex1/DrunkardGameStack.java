@@ -48,17 +48,17 @@ public class DrunkardGameStack implements IDrunkardGame {
             Integer fir = firPlayer.pop();
             Integer sec = secPlayer.pop();
             int win = winner(fir, sec);
-            if (win > 0)
+            if (win < 0)
             {
-                res.drunkardLog += "Win 2 player: f:" + fir + " x s:" + sec + "\n";
+                res.drunkardLog += "Win 1 player: f:" + fir + " x s:" + sec + "\n";
                 while (battle.size() > 0)
                     firDischarge.push(battle.remove(0));
                 firDischarge.push(fir);
                 firDischarge.push(sec);
             }
-            else if (win < 0)
+            else if (win > 0)
             {
-                res.drunkardLog += "Win 1 player: f:" + fir + " x s:" + sec + "\n";
+                res.drunkardLog += "Win 2 player: f:" + fir + " x s:" + sec + "\n";
                 while (battle.size() > 0)
                     secDischarge.push(battle.remove(0));
                 secDischarge.push(fir);

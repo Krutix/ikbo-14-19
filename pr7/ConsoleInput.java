@@ -44,7 +44,7 @@ public class ConsoleInput {
                 if (result.Win == 0)
                     System.out.print("Both be drunkards: ");
                 else
-                    System.out.print((result.Win < 0 ? "first" : "second") + " :");
+                    System.out.print((result.Win > 0 ? "first" : "second") + " :");
                 System.out.println(result.steps);
             } else
                 System.out.println("botva");
