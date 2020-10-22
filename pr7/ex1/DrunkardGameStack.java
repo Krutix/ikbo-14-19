@@ -36,8 +36,8 @@ public class DrunkardGameStack implements IDrunkardGame {
             firDischarge.push(el);
         for (int el : secPlayerStart)
             secDischarge.push(el);
-        while (((firPlayer.size() > 0 || firDischarge.size() > 0) &&
-                (secPlayer.size() > 0 || secDischarge.size() > 0)) && step < 10000)
+        while (((!firPlayer.isEmpty() || !firDischarge.isEmpty()) &&
+                (!secPlayer.isEmpty() || !secDischarge.isEmpty())) && step < 10000)
         {
             if (firPlayer.size() == 0)
                 while (firDischarge.size() > 0)

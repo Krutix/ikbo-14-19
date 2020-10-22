@@ -92,7 +92,7 @@ public class DrunkardGameUI {
                         spWins.setText(String.valueOf(res.spWins));
                         fightResult.setText(res.drunkardLog);
                         if (res.Win != 0)
-                            fightResult.append("\nWinner is " + (res.Win < 0 ? "first" : "second") + " for " + res.steps + " steps\n");
+                            fightResult.append("\nWinner is " + (res.Win > 0 ? "first" : "second") + " for " + res.steps + " steps\n");
                         else
                             fightResult.append("\n Draw for " + res.steps + " steps\n");
                         enterData = 0;
