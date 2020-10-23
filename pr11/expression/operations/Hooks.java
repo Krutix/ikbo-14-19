@@ -1,8 +1,6 @@
 package pr11.expression.operations;
 
 public class Hooks extends UnirOperation {
-    IExpression contain;
-
     public Hooks(IExpression contain) {
         super(contain);
     }

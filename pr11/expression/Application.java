@@ -8,14 +8,13 @@ public class Application {
     private static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        while (scanner.hasNextInt()) {
-            IExpression expression = new Divide(new Multiply(new Const(200000), new Variable("x")), new Multiply (new Const(10000), new Variable("x")));
-            expression.evaluate("x", scanner.nextInt());
+        while (scanner.hasNextLine()) {
             try {
-                System.out.println(expression.getValue());
+                IExpression expression = ExpressionParser.parse(scanner.nextLine());
+                System.out.println("Value: " + expression.getValue());
             }
             catch (Exception e) {
-                System.out.println("Error");
+                System.out.println(e.toString());
             }
         }
     }
