@@ -48,11 +48,10 @@ public class TextDocument implements IDocument {
     @Override
     public boolean saveAs(String path) {
         try {
-          if (this.path.compareTo(".tbh.txt") == 0)
+            if (this.path.compareTo(".tbh.txt") == 0)
                 this.path = path;
             FileWriter writer = new FileWriter(path);
             writer.write(data);
-            System.out.println(data);
         } catch (Exception e) {
             return false;
         }
