@@ -10,8 +10,9 @@ public class Application {
     public static void main(String[] args) {
         while (scanner.hasNextLine()) {
             try {
+                ExpressionParser.clean();
                 IExpression expression = ExpressionParser.parse(scanner.nextLine());
-                System.out.println("Value: " + expression.getValue());
+                System.out.println("Value: " + expression.toStringExpr());
             }
             catch (Exception e) {
                 System.out.println(e.toString());

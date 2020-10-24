@@ -17,4 +17,9 @@ public class Power extends Operation {
             tbh *= first;
         return tbh;
     }
+
+    @Override
+    public String toStringExpr() {
+        return fir.toStringExpr() + " ^ " + sec.toStringExpr();
+    }
 }

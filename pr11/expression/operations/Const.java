@@ -19,4 +19,9 @@ public class Const implements IExpression {
     public int getValue() throws Exception {
         return value;
     }
+
+    @Override
+    public String toStringExpr() {
+        return String.valueOf(value);
+    }
 }

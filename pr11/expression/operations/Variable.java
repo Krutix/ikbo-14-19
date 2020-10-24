@@ -32,4 +32,11 @@ public class Variable implements IExpression {
             throw new NullInitializeVariable(key);
         return value;
     }
+
+    @Override
+    public String toStringExpr() {
+        if (value != null)
+            return key + "[" + value.toString() + "]";
+        return key + "[null]";
+    }
 }

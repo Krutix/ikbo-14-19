@@ -9,4 +9,9 @@ public class Hooks extends UnirOperation {
     public int getValue() throws Exception {
         return contain.getValue();
     }
+
+    @Override
+    public String toStringExpr() {
+        return "(" + contain.toStringExpr() + ")";
+    }
 }

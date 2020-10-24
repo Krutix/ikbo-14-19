@@ -6,4 +6,6 @@ public interface IExpression {
     void evaluate(String key, int value);
     void evaluate(HashMap<String, Integer> params);
     int getValue() throws Exception;
+
+    String toStringExpr();
 }

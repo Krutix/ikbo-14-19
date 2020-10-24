@@ -9,4 +9,9 @@ public class Multiply extends Operation {
     public int getValue() throws Exception {
         return fir.getValue() * sec.getValue();
     }
+
+    @Override
+    public String toStringExpr() {
+        return fir.toStringExpr() + " * " + sec.toStringExpr();
+    }
 }
