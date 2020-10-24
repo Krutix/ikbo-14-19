@@ -7,7 +7,7 @@ public class Divide extends Operation {
 
     @Override
     public int getValue() throws Exception {
-        return fir.getValue() / sec.getValue();
+        return Math.floorDiv(fir.getValue(), sec.getValue());
     }
 
     @Override

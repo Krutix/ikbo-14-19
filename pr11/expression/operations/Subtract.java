@@ -10,7 +10,7 @@ public class Subtract extends Operation {
 
     @Override
     public int getValue() throws Exception {
-        return fir.getValue() - sec.getValue();
+        return Math.subtractExact(fir.getValue(), sec.getValue());
     }
 
     @Override

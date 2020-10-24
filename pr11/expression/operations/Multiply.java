@@ -7,7 +7,7 @@ public class Multiply extends Operation {
 
     @Override
     public int getValue() throws Exception {
-        return fir.getValue() * sec.getValue();
+        return Math.multiplyExact(fir.getValue(), sec.getValue());
     }
 
     @Override

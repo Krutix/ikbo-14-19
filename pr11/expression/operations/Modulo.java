@@ -7,7 +7,7 @@ public class Modulo extends Operation {
 
     @Override
     public int getValue() throws Exception {
-        return fir.getValue() % sec.getValue();
+        return Math.floorMod(fir.getValue(), sec.getValue());
     }
 
     @Override

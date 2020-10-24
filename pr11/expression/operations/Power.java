@@ -14,7 +14,7 @@ public class Power extends Operation {
         int first = tbh;
         int power = sec.getValue();
         for (int i = 0; i < power; i++)
-            tbh *= first;
+            tbh = Math.multiplyExact(tbh, first);
         return tbh;
     }
 

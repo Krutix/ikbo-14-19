@@ -2,6 +2,7 @@ package pr11.expression;
 
 import pr11.expression.operations.*;
 
+import java.text.ParseException;
 import java.util.HashMap;
 import java.util.regex.*;
 
@@ -14,15 +15,15 @@ public class ExpressionParser {
     static private final Pattern mHighPriority = Pattern.compile("(" + pNum.pattern() + ")\\s*(" + hHighPriority.pattern() + ")\\s*(" + pNum.pattern() + ")");
     static private final Pattern mLowPriority = Pattern.compile("(" + pNum.pattern() + ")\\s*(" + hLowPriority.pattern() + ")\\s*(" + pNum.pattern() + ")");
 
-    static private int id = 0;
-    static private HashMap<String, IExpression> expressionMap = new HashMap<>();
+    private int id = 0;
+    private HashMap<String, IExpression> expressionMap = new HashMap<>();
 
-    static public void clean() {
+    public void clean() {
         id = 0;
         expressionMap = new HashMap<>();
     }
 
-    static public IExpression parse(String str) throws Exception {
+    public IExpression parse(String str) throws Exception {
         Matcher matcher = pUnirMinusNum.matcher(str);
         if (matcher.find())
         {
@@ -47,12 +48,15 @@ public class ExpressionParser {
             return parse(str.substring(0, matcher.start(0)) + "_expr" + id++ + str.substring(matcher.end(0)));
         }
         matcher = pNum.matcher(str);
-        if (matcher.find())
-            return parseVariable(matcher.group(0));
-        throw new Exception(str);
+        if (matcher.find()) {
+            String tbh = matcher.group(0);
+            if (!matcher.find())
+                return parseVariable(tbh);
+        }
+        throw new Exception("");
     }
 
-    static private IExpression parseSimpleExpression(MatchResult match) throws Exception {
+    private IExpression parseSimpleExpression(MatchResult match) throws Exception {
         return switch (match.group(2)) {
             case "+" -> new Add(parseVariable(match.group(1)), parseVariable(match.group(3)));
             case "-" -> new Subtract(parseVariable(match.group(1)), parseVariable(match.group(3)));
@@ -60,11 +64,11 @@ public class ExpressionParser {
             case "/" -> new Divide(parseVariable(match.group(1)), parseVariable(match.group(3)));
             case "%" -> new Modulo(parseVariable(match.group(1)), parseVariable(match.group(3)));
             case "^" -> new Power(parseVariable(match.group(1)), parseVariable(match.group(3)));
-            default -> throw new Exception("Fuck u");
+            default -> throw new Exception("");
         };
     }
 
-    static private IExpression parseVariable(String s) {
+    private IExpression parseVariable(String s) {
         try {
             if (expressionMap.containsKey(s))
                 return expressionMap.get(s);
@@ -73,5 +77,18 @@ public class ExpressionParser {
         catch (NumberFormatException e) {
             return new Variable(s);
         }
+    }
+
+    static private final Pattern pEvaluate = Pattern.compile("(([a-z]+)\\s+(\\d+))");
+
+    static public HashMap<String, Integer> parseEvaluate(String str) {
+        System.out.println(str);
+        HashMap<String, Integer> evaluateMap = new HashMap<>();
+        Matcher matcher = pEvaluate.matcher(str);
+        while (matcher.find()) {
+            System.out.println(matcher.group(2) + " " + matcher.group(3));
+            evaluateMap.put(matcher.group(2), Integer.parseInt(matcher.group(3)));
+        }
+        return evaluateMap;
     }
 }
