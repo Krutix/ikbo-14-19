@@ -37,6 +37,6 @@ public class Variable implements IExpression {
     public String toStringExpr() {
         if (value != null)
             return key + "[" + value.toString() + "]";
-        return key + "[null]";
+        return key + "[]";
     }
 }

@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.regex.*;
 
 public class ExpressionParser {
-    static private final Pattern pHooks = Pattern.compile("\\(([\\d\\s\\*\\+\\-/^%]*)\\)");
+    static private final Pattern pHooks = Pattern.compile("\\(([\\d\\s\\*\\+\\-/^%_a-z]*)\\)");
     static private final Pattern pNum = Pattern.compile("\\d+|[a-z]+|_expr\\d+");
     static private final Pattern pUnirMinusNum = Pattern.compile("-(" + pNum + ")");
     static private final Pattern hHighPriority = Pattern.compile("[\\*/^%]");
@@ -53,7 +53,7 @@ public class ExpressionParser {
             if (!matcher.find())
                 return parseVariable(tbh);
         }
-        throw new Exception("");
+        throw new Exception(str);
     }
 
     private IExpression parseSimpleExpression(MatchResult match) throws Exception {
@@ -85,10 +85,8 @@ public class ExpressionParser {
         System.out.println(str);
         HashMap<String, Integer> evaluateMap = new HashMap<>();
         Matcher matcher = pEvaluate.matcher(str);
-        while (matcher.find()) {
-            System.out.println(matcher.group(2) + " " + matcher.group(3));
+        while (matcher.find())
             evaluateMap.put(matcher.group(2), Integer.parseInt(matcher.group(3)));
-        }
         return evaluateMap;
     }
 }
